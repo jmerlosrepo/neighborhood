@@ -3,3 +3,9 @@ export type ButtonProps = {
   label: string;
   onButtonClick: Function;
 };
+
+export type FormContainerProps = {
+  children: React.ReactNode;
+  header: string;
+  onFormSubmit: Function;
+};
