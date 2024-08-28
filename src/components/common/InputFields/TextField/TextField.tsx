@@ -7,13 +7,13 @@ import { textInputType } from "../../../../enums";
 import styles from "./TextField.module.scss";
 
 const TextField = ({
-  id,
-  name,
-  inputType,
-  value,
-  label,
-  isShowClearText,
   className,
+  id,
+  inputType,
+  isShowClearText,
+  label,
+  name,
+  value,
 }: TextFieldProps) => {
   const [inputValue, setInputVale] = useState<string>(value);
   const [showText, setShowText] = useState<boolean>(false);

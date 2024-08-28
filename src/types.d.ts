@@ -13,11 +13,22 @@ export type FormContainerProps = {
 };
 
 export type TextFieldProps = {
-  id: string;
-  name: string;
-  label: string;
   className: string;
+  id: string;
   inputType: textInputType;
-  value: string;
   isShowClearText: boolean;
+  label: string;
+  name: string;
+  value: string;
+};
+
+export type NavbarProps = {
+  children: React.ReactNode;
+  className: string;
+};
+
+export type NavbarButtonProps = {
+  className: string;
+  to: string;
+  text: string;
 };
