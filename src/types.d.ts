@@ -1,15 +1,17 @@
-import { textInputType } from "./enums";
+import { FormEvent, ReactNode } from "react";
+import { buttonType, textInputType } from "./enums";
 
 export type ButtonProps = {
   className?: string;
   label: string;
-  onButtonClick: Function;
+  onButtonClick?: () => void;
+  type: buttonType;
 };
 
 export type FormContainerProps = {
   children: React.ReactNode;
   header: string;
-  onFormSubmit: Function;
+  onFormSubmit: (e: FormEvent) => void;
 };
 
 export type TextFieldProps = {
@@ -29,16 +31,26 @@ export type NavbarProps = {
 
 export type NavbarButtonProps = {
   className?: string;
-  to: string;
   text: string;
+  to: string;
 };
 
 export type TableProps = {
+  className?: string;
   headers: string[];
   tableData: { [value: string]: string }[];
-  className?: string;
 };
 
 export type SliderProps = {
   onChange?: (checked: boolean) => void;
+};
+
+export type FormProps = {
+  children: ReactNode;
+  hasCancelButton?: boolean;
+  id: string;
+  name: string;
+  onCancel?: () => void;
+  onSubmit: (e: FormEvent) => void;
+  title: string;
 };
