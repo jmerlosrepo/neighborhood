@@ -1,7 +1,7 @@
 import { textInputType } from "./enums";
 
 export type ButtonProps = {
-  className: string;
+  className?: string;
   label: string;
   onButtonClick: Function;
 };
@@ -13,7 +13,7 @@ export type FormContainerProps = {
 };
 
 export type TextFieldProps = {
-  className: string;
+  className?: string;
   id: string;
   inputType: textInputType;
   isShowClearText: boolean;
@@ -24,11 +24,21 @@ export type TextFieldProps = {
 
 export type NavbarProps = {
   children: React.ReactNode;
-  className: string;
+  className?: string;
 };
 
 export type NavbarButtonProps = {
-  className: string;
+  className?: string;
   to: string;
   text: string;
+};
+
+export type TableProps = {
+  headers: string[];
+  tableData: { [value: string]: string }[];
+  className?: string;
+};
+
+export type SliderProps = {
+  onChange?: (checked: boolean) => void;
 };

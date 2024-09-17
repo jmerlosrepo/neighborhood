@@ -31,11 +31,7 @@ const TextField = ({
   };
 
   return (
-    <div
-      className={classNames(styles.defaultInputStyle, {
-        [className]: className,
-      })}
-    >
+    <div className={classNames(styles.defaultInputStyle, className)}>
       <label htmlFor={id}>
         {label}
         <input
