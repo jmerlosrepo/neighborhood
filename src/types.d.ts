@@ -1,5 +1,5 @@
 import { FormEvent, ReactNode } from "react";
-import { buttonType, textInputType } from "./enums";
+import { buttonType, textInputType, userType } from "./enums";
 
 export type ButtonProps = {
   className?: string;
@@ -53,4 +53,9 @@ export type FormProps = {
   onCancel?: () => void;
   onSubmit: (e: FormEvent) => void;
   title: string;
+};
+
+export type User = {
+  username: string;
+  type: userType;
 };

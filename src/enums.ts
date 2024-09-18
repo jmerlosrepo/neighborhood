@@ -7,3 +7,8 @@ export enum buttonType {
   submit = "submit",
   button = "button",
 }
+
+export enum userType {
+  manager = "manager",
+  neighbor = "neighbor",
+}
