@@ -16,9 +16,9 @@ const Unit = () => {
 
   useEffect(() => {
     if (user.type === userType.manager) {
-      setDisabledForm(true);
-    } else {
       setDisabledForm(false);
+    } else {
+      setDisabledForm(true);
     }
   }, [user.type]);
 
@@ -28,7 +28,6 @@ const Unit = () => {
   console.log("#### disabledForm", disabledForm);
   return (
     <Form
-      hasCancelButton={true}
       disabled={disabledForm}
       id="unitForm"
       name="unitForm"

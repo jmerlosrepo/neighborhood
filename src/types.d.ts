@@ -22,6 +22,7 @@ export type TextFieldProps = {
   inputType: textInputType;
   isShowClearText?: boolean;
   label: string;
+  maxNumberSpan?: number;
   placeholderText?: string;
   name: string;
   value?: string;
@@ -73,7 +74,6 @@ export type SliderProps = {
 export type FormProps = {
   children: ReactNode;
   disabled?: boolean;
-  hasCancelButton?: boolean;
   id: string;
   name: string;
   onCancel?: () => void;

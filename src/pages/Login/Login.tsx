@@ -29,7 +29,6 @@ const Login = () => {
 
   return (
     <Form
-      hasCancelButton={true}
       id="loginForm"
       name="loginForm"
       onCancel={handleCancel}

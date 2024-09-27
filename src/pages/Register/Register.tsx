@@ -37,7 +37,6 @@ const Register = () => {
 
   return (
     <Form
-      hasCancelButton={true}
       id="registerForm"
       name="registerForm"
       onCancel={handleCancel}

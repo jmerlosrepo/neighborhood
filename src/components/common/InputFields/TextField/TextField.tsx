@@ -13,6 +13,7 @@ const TextField = ({
   inputType,
   isShowClearText = false,
   label,
+  maxNumberSpan,
   placeholderText,
   name,
   value,
@@ -48,6 +49,8 @@ const TextField = ({
           placeholder={placeholderText ? placeholderText : ""}
           type={!showText ? inputType : "text"}
           value={inputValue}
+          min={0}
+          max={maxNumberSpan}
         />
       </label>
       {inputType === textInputType.password && (
