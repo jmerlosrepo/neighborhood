@@ -46,6 +46,7 @@ export type SelectFieldProps = {
   id: string;
   label: string;
   name: string;
+  onSelect?: (value: string) => void;
   options: Option[];
   value?: OPtion;
 };

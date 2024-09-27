@@ -11,6 +11,7 @@ const SelectField = ({
   id,
   label,
   name,
+  onSelect,
   options,
   value,
 }: SelectFieldProps) => {
@@ -20,6 +21,7 @@ const SelectField = ({
 
   const handleChange = (e: ChangeEvent<HTMLSelectElement>) => {
     const selectedId = e.target.value;
+    onSelect?.(selectedId);
     const selectedText =
       options.find((option) => option.id === selectedId)?.text || "";
     setSelectedOption({ id: selectedId, text: selectedText });

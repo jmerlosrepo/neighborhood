@@ -1,4 +1,5 @@
 export enum textInputType {
+  date = "date",
   email = "email",
   number = "number",
   password = "password",
