@@ -4,8 +4,9 @@ import { ButtonProps } from "../../../../types";
 import styles from "./FormButton.module.scss";
 
 const FormButton = ({
-  label,
   className,
+  disabled,
+  label,
   onButtonClick = () => {},
   type,
 }: ButtonProps) => {
@@ -15,9 +16,10 @@ const FormButton = ({
 
   return (
     <button
-      type={type}
-      onClick={handleOnClick}
       className={classNames(styles.button, className && className)}
+      disabled={disabled}
+      onClick={handleOnClick}
+      type={type}
     >
       {label}
     </button>

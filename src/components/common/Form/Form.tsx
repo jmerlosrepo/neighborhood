@@ -5,11 +5,12 @@ import { buttonType } from "../../../enums";
 
 const Form = ({
   children,
+  disabled,
+  hasCancelButton,
   id,
   name,
-  title,
-  hasCancelButton,
   onSubmit,
+  title,
   onCancel = () => {},
 }: FormProps) => {
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
@@ -24,12 +25,17 @@ const Form = ({
       <div>
         {hasCancelButton && (
           <FormButton
+            disabled={disabled}
             label="Cancel"
             onButtonClick={onCancel}
             type={buttonType.button}
           />
         )}
-        <FormButton label="Submit" type={buttonType.submit} />
+        <FormButton
+          disabled={disabled}
+          label="Submit"
+          type={buttonType.submit}
+        />
       </div>
     </form>
   );

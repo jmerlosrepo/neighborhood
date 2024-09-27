@@ -3,6 +3,7 @@ import { buttonType, textInputType, userType } from "./enums";
 
 export type ButtonProps = {
   className?: string;
+  disabled?: boolean;
   label: string;
   onButtonClick?: () => void;
   type: buttonType;
@@ -16,12 +17,36 @@ export type FormContainerProps = {
 
 export type TextFieldProps = {
   className?: string;
+  disabled?: boolean;
   id: string;
   inputType: textInputType;
-  isShowClearText: boolean;
+  isShowClearText?: boolean;
+  label: string;
+  placeholderText?: string;
+  name: string;
+  value?: string;
+};
+
+export type TextAreaProps = {
+  className?: string;
+  disabled?: boolean;
+  id: string;
   label: string;
   name: string;
-  value: string;
+  placeholderText?: string;
+  rows?: number;
+  value?: string;
+};
+export type Option = { id: string; text: string };
+
+export type SelectFieldProps = {
+  className?: string;
+  disabled?: boolean;
+  id: string;
+  label: string;
+  name: string;
+  options: Option[];
+  value?: OPtion;
 };
 
 export type NavbarProps = {
@@ -47,6 +72,7 @@ export type SliderProps = {
 
 export type FormProps = {
   children: ReactNode;
+  disabled?: boolean;
   hasCancelButton?: boolean;
   id: string;
   name: string;

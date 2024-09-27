@@ -1,11 +1,12 @@
 export enum textInputType {
-  text = "text",
+  email = "email",
   password = "password",
+  text = "text",
 }
 
 export enum buttonType {
-  submit = "submit",
   button = "button",
+  submit = "submit",
 }
 
 export enum userType {

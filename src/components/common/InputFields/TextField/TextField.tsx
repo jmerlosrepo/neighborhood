@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, ChangeEvent } from "react";
 import classNames from "classnames";
 
 import { TextFieldProps } from "../../../../types";
@@ -8,26 +8,32 @@ import styles from "./TextField.module.scss";
 
 const TextField = ({
   className,
+  disabled = false,
   id,
   inputType,
-  isShowClearText,
+  isShowClearText = false,
   label,
+  placeholderText,
   name,
   value,
 }: TextFieldProps) => {
-  const [inputValue, setInputVale] = useState<string>(value);
-  const [showText, setShowText] = useState<boolean>(false);
+  const [inputValue, setInputVale] = useState<string>(value ? value : "");
+  const [showText, setShowText] = useState<boolean>(isShowClearText);
 
   useEffect(() => {
-    setInputVale(value);
+    setInputVale(value ? value : "");
   }, [value]);
 
   useEffect(() => {
     setShowText(isShowClearText);
   }, [isShowClearText]);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setInputVale(e.target.value);
+  };
+
+  const handleCheckboxChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setShowText(e.target.checked);
   };
 
   return (
@@ -35,11 +41,13 @@ const TextField = ({
       <label htmlFor={id}>
         {label}
         <input
-          type={inputType}
+          disabled={disabled}
           id={id}
           name={name}
-          value={inputValue}
           onChange={handleChange}
+          placeholder={placeholderText ? placeholderText : ""}
+          type={!showText ? inputType : "text"}
+          value={inputValue}
         />
       </label>
       {inputType === textInputType.password && (
@@ -48,8 +56,10 @@ const TextField = ({
             [styles.passwordCheckboxOn]: showText,
             [styles.passwordCheckboxOff]: !showText,
           })}
+          disabled={disabled}
           type="checkbox"
           checked={showText}
+          onChange={handleCheckboxChange}
         />
       )}
     </div>

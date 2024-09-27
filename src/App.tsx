@@ -21,7 +21,7 @@ import { User } from "./types";
 import styles from "./App.module.scss";
 
 const App = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
+  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(true);
   const [user, setUser] = useState<User>({
     username: "jmerlosg",
     type: userType.neighbor,
