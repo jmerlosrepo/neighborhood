@@ -5,6 +5,7 @@ import Navbar from "../../components/Navbar/Navbar";
 import NavbarButton from "../../components/common/Buttons/NavbarButton/NavbarButton";
 
 import { User } from "../../types";
+import LatestNews from "../../components/LatestNews/LatestNews";
 
 const Dashboard = () => {
   const [user, setUser] = useState<User>({
@@ -12,16 +13,15 @@ const Dashboard = () => {
     type: userType.neighbor,
   });
 
+  const news = [
+    { id: "", title: "", image: "", description: "" },
+    { id: "", title: "", image: "", description: "" },
+    { id: "", title: "", image: "", description: "" },
+  ];
+
   return (
     <div>
-      <Navbar>
-        <NavbarButton to="/dashboard" text="Dashboard" />
-        <NavbarButton to="/complex" text="Complex" />
-        <NavbarButton to="/unit" text="Unit" />
-        {user.type === userType.manager && (
-          <NavbarButton text="Expenses" to="/expenses" />
-        )}
-      </Navbar>
+      <LatestNews news={news} />
     </div>
   );
 };

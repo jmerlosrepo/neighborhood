@@ -24,74 +24,79 @@ const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(true);
   const [user, setUser] = useState<User>({
     username: "jmerlosg",
-    type: userType.neighbor,
+    type: userType.manager,
   });
 
   return (
     <div>
       <Navbar>
         {!isLoggedIn && <NavbarButton text="Landing" to="/" />}
-        {isLoggedIn && (
-          <>
-            <NavbarButton text="Dashboard" to="/dashboard" />
-            <NavbarButton text="Complex" to="/complex" />
-            <NavbarButton text="Unit" to="/unit" />
-            <NavbarButton text="Payments" to="/payments" />
-            {user.type === userType.manager && (
-              <NavbarButton text="Expenses" to="/expenses" />
-            )}
-            <NavbarButton text="Profile" to="/profile" />
-          </>
-        )}
+
         {isLoggedIn ? (
           <NavbarButton text="Log Out" to="/logout" />
         ) : (
           <NavbarButton text="Log In" to="/login" />
         )}
 
-        <NavbarButton text="Register" to="/register" />
+        {!isLoggedIn && <NavbarButton text="Register" to="/register" />}
       </Navbar>
       <div className={styles.page}>
-        <Routes>
-          <Route path="/" element={<Landing />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/login" element={<Logout />} />
-          <Route path="/register" element={<Register />} />
-          <Route
-            path="/dashboard"
-            element={isLoggedIn ? <Dashboard /> : <Navigate to="/login" />}
-          />
-          <Route
-            path="/users"
-            element={
-              isLoggedIn && user.type === userType.manager ? (
-                <Users />
-              ) : (
-                <Navigate to="/login" />
-              )
-            }
-          />
-          <Route
-            path="/complex"
-            element={isLoggedIn ? <Complex /> : <Navigate to="/login" />}
-          />
-          <Route
-            path="/unit"
-            element={isLoggedIn ? <Unit /> : <Navigate to="/login" />}
-          />
-          <Route
-            path="/expenses"
-            element={isLoggedIn ? <Expenses /> : <Navigate to="/login" />}
-          />
-          <Route
-            path="/payments"
-            element={isLoggedIn ? <Payments /> : <Navigate to="/login" />}
-          />
-          <Route
-            path="/profile"
-            element={isLoggedIn ? <Profile /> : <Navigate to="/login" />}
-          />
-        </Routes>
+        {isLoggedIn && (
+          <div className={styles.pagePanelLeft}>
+            <Navbar>
+              <NavbarButton text="Dashboard" to="/dashboard" />
+              <NavbarButton text="Complex" to="/complex" />
+              <NavbarButton text="Unit" to="/unit" />
+              <NavbarButton text="Payments" to="/payments" />
+              {user.type === userType.manager && (
+                <NavbarButton text="Expenses" to="/expenses" />
+              )}
+              <NavbarButton text="Profile" to="/profile" />
+            </Navbar>
+          </div>
+        )}
+        <div className={styles.pagePanelRight}>
+          <Routes>
+            <Route path="/" element={<Landing />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/login" element={<Logout />} />
+            <Route path="/register" element={<Register />} />
+            <Route
+              path="/dashboard"
+              element={isLoggedIn ? <Dashboard /> : <Navigate to="/login" />}
+            />
+            <Route
+              path="/users"
+              element={
+                isLoggedIn && user.type === userType.manager ? (
+                  <Users />
+                ) : (
+                  <Navigate to="/login" />
+                )
+              }
+            />
+            <Route
+              path="/complex"
+              element={isLoggedIn ? <Complex /> : <Navigate to="/login" />}
+            />
+            <Route
+              path="/unit"
+              element={isLoggedIn ? <Unit /> : <Navigate to="/login" />}
+            />
+            <Route
+              path="/expenses"
+              element={isLoggedIn ? <Expenses /> : <Navigate to="/login" />}
+            />
+            <Route
+              path="/payments"
+              element={isLoggedIn ? <Payments /> : <Navigate to="/login" />}
+            />
+            <Route
+              path="/profile"
+              element={isLoggedIn ? <Profile /> : <Navigate to="/login" />}
+            />
+          </Routes>
+        </div>
       </div>
     </div>
   );

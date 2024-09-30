@@ -38,6 +38,7 @@ export type TextAreaProps = {
   rows?: number;
   value?: string;
 };
+
 export type Option = { id: string; text: string };
 
 export type SelectFieldProps = {
@@ -85,4 +86,15 @@ export type FormProps = {
 export type User = {
   username: string;
   type: userType;
+};
+
+export type News = {
+  id: string;
+  title: string;
+  image?: string;
+  description: string;
+};
+
+export type LatestNewsProps = {
+  news: News[];
 };
