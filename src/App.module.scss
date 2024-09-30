@@ -1,15 +1,19 @@
 @import "./_constants.scss";
 @import "./_mixins.scss";
 
+.viewport {
+  padding: 0;
+  margin: 0;
+}
 .page {
   @include pageCentring;
   .pagePanelLeft {
-    border: 3px solid green;
     width: 10%;
     height: 100%;
+    padding: 0;
+    margin: 0;
   }
   .pagePanelRight {
-    border: 3px solid blue;
     width: 90%;
     height: 100%;
     display: flex;
@@ -18,5 +22,38 @@
     align-items: center;
     padding: 0;
     margin: 0;
+  }
+}
+
+.horizontalNavbar,
+.verticalNavbar {
+  @include listReset;
+}
+
+.horizontalNavbar {
+  background-color: #8f8e8c;
+  height: 65px;
+  display: flex;
+  flex-direction: column;
+  a {
+    width: 150px;
+    background-color: #8f8e8c;
+    &:hover {
+      background-color: #737070;
+    }
+  }
+}
+
+.verticalNavbar {
+  background-color: #8f8e8c;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  a {
+    width: 100%;
+    background-color: #8f8e8c;
+    &:hover {
+      background-color: #737070;
+    }
   }
 }

@@ -53,6 +53,7 @@ export type SelectFieldProps = {
 };
 
 export type NavbarProps = {
+  branding?: string;
   children: React.ReactNode;
   className?: string;
 };

@@ -26,10 +26,17 @@ const TextArea = ({
   };
 
   return (
-    <div className={classNames(styles.defaultInputStyle, className)}>
-      <label htmlFor={id}>
-        {label}
+    <div
+      className={classNames(
+        "form-group row",
+        styles.defaultInputStyle,
+        className
+      )}
+    >
+      <label htmlFor={id}>{label}</label>
+      <div className="col-sm-10">
         <textarea
+          className="form-control form-control-lg"
           disabled={disabled}
           id={id}
           name={name}
@@ -38,7 +45,7 @@ const TextArea = ({
           rows={rows}
           value={inputValue}
         ></textarea>
-      </label>
+      </div>
     </div>
   );
 };

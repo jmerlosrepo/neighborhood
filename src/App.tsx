@@ -1,4 +1,5 @@
 import { useState } from "react";
+import classNames from "classnames";
 import { Navigate, Route, Routes } from "react-router-dom";
 
 import Landing from "./pages/Landing/Landing";
@@ -28,8 +29,8 @@ const App = () => {
   });
 
   return (
-    <div>
-      <Navbar>
+    <div className={classNames("container-fluid", styles.viewport)}>
+      <Navbar className={styles.horizontalNavbar} branding="NEIGHBORHOOD">
         {!isLoggedIn && <NavbarButton text="Landing" to="/" />}
 
         {isLoggedIn ? (
@@ -40,10 +41,10 @@ const App = () => {
 
         {!isLoggedIn && <NavbarButton text="Register" to="/register" />}
       </Navbar>
-      <div className={styles.page}>
+      <div className={classNames(styles.page)}>
         {isLoggedIn && (
-          <div className={styles.pagePanelLeft}>
-            <Navbar>
+          <div className={classNames("container-fluid", styles.pagePanelLeft)}>
+            <Navbar className={styles.verticalNavbar}>
               <NavbarButton text="Dashboard" to="/dashboard" />
               <NavbarButton text="Complex" to="/complex" />
               <NavbarButton text="Unit" to="/unit" />

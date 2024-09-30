@@ -2,9 +2,12 @@ import classNames from "classnames";
 
 import { NavbarProps } from "../../types";
 
-const Navbar = ({ children, className }: NavbarProps) => {
+import styles from "./Navbar.module.scss";
+
+const Navbar = ({ children, className, branding }: NavbarProps) => {
   return (
     <nav className={classNames(className)}>
+      <div className={styles.branding}></div>
       <ul>{children}</ul>
     </nav>
   );

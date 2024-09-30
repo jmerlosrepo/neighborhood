@@ -38,10 +38,17 @@ const TextField = ({
   };
 
   return (
-    <div className={classNames(styles.defaultInputStyle, className)}>
-      <label htmlFor={id}>
-        {label}
+    <div
+      className={classNames(
+        "form-group row",
+        styles.defaultInputStyle,
+        className
+      )}
+    >
+      <label htmlFor={id}>{label}</label>
+      <div className="col-sm-10">
         <input
+          className="form-control form-control-lg"
           disabled={disabled}
           id={id}
           name={name}
@@ -52,7 +59,7 @@ const TextField = ({
           min={0}
           max={maxNumberSpan}
         />
-      </label>
+      </div>
       {inputType === textInputType.password && (
         <input
           className={classNames({

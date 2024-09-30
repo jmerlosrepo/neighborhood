@@ -28,10 +28,17 @@ const SelectField = ({
   };
 
   return (
-    <div className={classNames(styles.defaultInputStyle, className)}>
-      <label htmlFor={id}>
-        {label}
+    <div
+      className={classNames(
+        "form-group row",
+        styles.defaultInputStyle,
+        className
+      )}
+    >
+      <label htmlFor={id}>{label}</label>
+      <div className="col-sm-10">
         <select
+          className="form-control form-control-lg"
           disabled={disabled}
           id={id}
           name={name}
@@ -48,7 +55,7 @@ const SelectField = ({
             <option disabled>No options available</option>
           )}
         </select>
-      </label>
+      </div>
     </div>
   );
 };

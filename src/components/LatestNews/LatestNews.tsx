@@ -12,7 +12,6 @@ const LatestNews = ({ news }: LatestNewsProps) => {
     return () => clearInterval(interval);
   }, [news.length]);
 
-  //TODO: poner la logica y los elementos para mostrar el contenido del objeto
   return <div>{arrIndex}</div>;
 };
 
