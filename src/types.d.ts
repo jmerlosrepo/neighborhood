@@ -1,4 +1,4 @@
-import { FormEvent, ReactNode } from "react";
+import { FormEv } from "react";
 import { buttonType, textInputType, userType } from "./enums";
 
 export type ButtonProps = {
@@ -10,7 +10,7 @@ export type ButtonProps = {
 };
 
 export type FormContainerProps = {
-  children: React.ReactNode;
+  children: ReactNode;
   header: string;
   onFormSubmit: (e: FormEvent) => void;
 };
@@ -54,7 +54,7 @@ export type SelectFieldProps = {
 
 export type NavbarProps = {
   branding?: string;
-  children: React.ReactNode;
+  children: R;
   className?: string;
 };
 
@@ -67,7 +67,7 @@ export type NavbarButtonProps = {
 export type TableProps = {
   className?: string;
   headers: string[];
-  tableData: { [value: string]: string }[];
+  children: ReactNode;
 };
 
 export type SliderProps = {
@@ -98,4 +98,26 @@ export type News = {
 
 export type LatestNewsProps = {
   news: News[];
+};
+
+export type ComplexData = {
+  id: string;
+  street: string;
+  number: string;
+};
+
+export type CellButtonProps = {
+  className?: string;
+  colsSpan?: number;
+  disabled?: boolean;
+  onCellButtonClick: () => void;
+  label: string;
+};
+
+export type CellSliderProps = {
+  className?: string;
+  colsSpan?: number;
+  disabled?: boolean;
+  onCellSliderChange: () => void;
+  label: string;
 };

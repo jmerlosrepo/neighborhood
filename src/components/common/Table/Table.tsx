@@ -3,7 +3,7 @@ import { TableProps } from "../../../types";
 
 import styles from "./Table.module.scss";
 
-const Table = ({ headers, tableData, className }: TableProps) => {
+const Table = ({ headers, children, className }: TableProps) => {
   return (
     <table className={classNames(styles.defaultTable, className && className)}>
       <thead>
@@ -16,15 +16,7 @@ const Table = ({ headers, tableData, className }: TableProps) => {
           ))}
         </tr>
       </thead>
-      <tbody>
-        {tableData.map((tData) => (
-          <tr>
-            {Object.values(tData).map((value) => (
-              <td>{value}</td>
-            ))}
-          </tr>
-        ))}
-      </tbody>
+      <tbody>{children}</tbody>
     </table>
   );
 };

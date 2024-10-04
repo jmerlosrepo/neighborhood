@@ -6,12 +6,14 @@ import TextField from "../../components/common/InputFields/TextField/TextField";
 import TextArea from "../../components/common/InputFields/TextArea/TextArea";
 
 import { textInputType, userType } from "../../enums";
-import { User } from "../../types";
+import { ComplexData, User } from "../../types";
 
 import styles from "./Complex.module.scss";
+import Table from "../../components/common/Table/Table";
 
 const Complex = () => {
   const [disabledForm, setDisabledForm] = useState<boolean>(false);
+  const [complexData, setComplexData] = useState<ComplexData[]>([]);
   const [user, setUser] = useState<User>({
     username: "jmerlosg",
     type: userType.manager,
@@ -87,6 +89,20 @@ const Complex = () => {
           label="Description"
         />
       </Form>
+      <Table
+        headers={[
+          "Complex Id",
+          "Address",
+          "Country",
+          "City",
+          "Units",
+          "Description",
+        ]}
+      >
+        <tr>
+          <td></td>
+        </tr>
+      </Table>
     </div>
   );
 };
