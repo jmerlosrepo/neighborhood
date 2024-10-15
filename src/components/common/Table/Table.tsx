@@ -1,22 +1,43 @@
-import classNames from "classnames";
-import { TableProps } from "../../../types";
+import TableRow from "./TableRow"; // Importa tu TableRow aquí
+import { ComplexData } from "../../../types";
 
-import styles from "./Table.module.scss";
+type TableProps = {
+  data: ComplexData[];
+  headers: string[];
+};
 
-const Table = ({ headers, children, className }: TableProps) => {
+const Table = ({ data, headers }: TableProps) => {
   return (
-    <table className={classNames(styles.defaultTable, className && className)}>
+    <table>
       <thead>
         <tr>
-          <th colSpan={2}>{"Titulo"}</th>
-        </tr>
-        <tr>
-          {headers.map((header: string) => (
-            <th key={header}>{header}</th>
+          {headers.map((header, index) => (
+            <th key={index}>{header}</th>
           ))}
         </tr>
       </thead>
-      <tbody>{children}</tbody>
+      <tbody>
+        {data.map((complexInfo) => (
+          <TableRow
+            key={complexInfo.id}
+            rowData={complexInfo} // Aquí pasas cada objeto `ComplexData` como `rowData`
+            buttons={[
+              <button
+                key="edit"
+                onClick={() => console.log("Edit", complexInfo.id)}
+              >
+                Edit
+              </button>,
+              <button
+                key="delete"
+                onClick={() => console.log("Delete", complexInfo.id)}
+              >
+                Delete
+              </button>,
+            ]}
+          />
+        ))}
+      </tbody>
     </table>
   );
 };

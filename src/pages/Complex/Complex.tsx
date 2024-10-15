@@ -10,10 +10,22 @@ import { ComplexData, User } from "../../types";
 
 import styles from "./Complex.module.scss";
 import Table from "../../components/common/Table/Table";
+import CellButton from "../../components/common/CellButton/CellButton";
 
 const Complex = () => {
   const [disabledForm, setDisabledForm] = useState<boolean>(false);
-  const [complexData, setComplexData] = useState<ComplexData[]>([]);
+  const [complexData, setComplexData] = useState<ComplexData[]>([
+    {
+      city: "Mexico City",
+      country: "Mexico",
+      description: "Test Data",
+      id: "1",
+      number: "431",
+      state: "Mexico City",
+      street: "Plaza Tajin",
+      units: 42,
+    },
+  ]);
   const [user, setUser] = useState<User>({
     username: "jmerlosg",
     type: userType.manager,
@@ -29,6 +41,8 @@ const Complex = () => {
 
   const handleSubmit = () => {};
   const handleCancel = () => {};
+  const handleEditTable = (id: string) => {};
+  const handleDeleteTable = (id: string) => {};
 
   return (
     <div className={styles.page}>
@@ -89,20 +103,19 @@ const Complex = () => {
           label="Description"
         />
       </Form>
+
       <Table
         headers={[
           "Complex Id",
           "Address",
           "Country",
+          "State",
           "City",
           "Units",
           "Description",
         ]}
-      >
-        <tr>
-          <td></td>
-        </tr>
-      </Table>
+        data={complexData} // Aquí pasas el array de ComplexData
+      />
     </div>
   );
 };

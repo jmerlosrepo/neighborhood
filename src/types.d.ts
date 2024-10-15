@@ -66,8 +66,10 @@ export type NavbarButtonProps = {
 
 export type TableProps = {
   className?: string;
+  hasControlsColumn?: boolean;
   headers: string[];
   children: ReactNode;
+  tableTitle?: string;
 };
 
 export type SliderProps = {
@@ -101,9 +103,14 @@ export type LatestNewsProps = {
 };
 
 export type ComplexData = {
+  city: string;
+  country: string;
+  description?: string;
   id: string;
-  street: string;
   number: string;
+  state: string;
+  street: string;
+  units: number;
 };
 
 export type CellButtonProps = {

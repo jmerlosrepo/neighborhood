@@ -1,3 +1,6 @@
+@import "../../../_constants";
+@import "../../../_mixins.scss";
+
 .buttonSectionSpacing {
-  margin-top: 10px;
+  @include componentSpacing;
 }
