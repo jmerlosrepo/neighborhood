@@ -88,6 +88,12 @@ export type FormProps = {
 
 export type User = {
   username: string;
+  password?: string;
+  name?: string;
+  lastName?: string;
+  email?: string;
+  phone1?: string;
+  phone2?: string;
   type: userType;
 };
 

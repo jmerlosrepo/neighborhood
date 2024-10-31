@@ -53,6 +53,13 @@ const Complex = () => {
         onSubmit={handleSubmit}
         onCancel={handleCancel}
       >
+        <TextField
+          disabled={disabledForm}
+          id="complexName"
+          inputType={textInputType.text}
+          label="Complex name"
+          name="complexName"
+        />
         <SelectField
           disabled={disabledForm}
           id="complexCountry"
